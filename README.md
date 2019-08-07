@@ -1,4 +1,17 @@
 # moment-holiday
+
+## Webpack Compatibility
+**This is a fork of the original moment-holiday that makes it possible to use moment-holiday with webpack.**
+
+```
+npm install --save https://github.com/joeldenning/moment-holiday\#1.5.2-webpack.0
+
+# Or
+yarn add https://github.com/joeldenning/moment-holiday\#1.5.2-webpack.0
+```
+
+## Documentation
+
 [![npm package version](https://img.shields.io/npm/v/moment-holiday.svg?style=flat-square)](https://www.npmjs.com/package/moment-holiday) [![Travis build status](https://img.shields.io/travis/kodie/moment-holiday.svg?style=flat-square)](https://travis-ci.org/kodie/moment-holiday) [![npm package downloads](https://img.shields.io/npm/dt/moment-holiday.svg?style=flat-square)](https://www.npmjs.com/package/moment-holiday) [![build/moment-holiday.min.js file size](https://img.shields.io/github/size/kodie/moment-holiday/build/moment-holiday.min.js.svg?style=flat-square)](build/moment-holiday.min.js) [![license](https://img.shields.io/github/license/kodie/moment-holiday.svg?style=flat-square)](LICENSE.md)
 
 A [Moment.js](https://github.com/moment/moment) plugin for handling holidays.

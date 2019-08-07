@@ -5,7 +5,10 @@
 //! https://github.com/kodie/moment-holiday
 
 (function() {
-  var moment = (typeof require !== 'undefined' && require !== null) && !require.amd ? require('moment') : this.moment;
+  // var moment = (typeof require !== 'undefined' && require !== null) && !require.amd ? require('moment') : this.moment;
+
+  // for web to work, we need to require moment without doing all the other checks:
+  var moment = require("moment");
 
   var parserExtensions = [];
 
@@ -283,13 +286,16 @@
     locale = regions[0].toLowerCase().replace(' ', '_');
     regions.shift();
 
-    if (!moment.holidays[locale]) {
-      try {
-        var path = './locale/';
-        if (__dirname.split('/').slice(-1).pop() == 'build') { path = '.' + path; }
-        require(path + locale);
-      } catch(e) { }
-    }
+    // This code doesn't work with webpack, so it's commented out
+    // If you want locales, you should import them yourself separately
+
+    // if (!moment.holidays[locale]) {
+    //   try {
+    //     var path = './locale/';
+    //     if (__dirname.split('/').slice(-1).pop() == 'build') { path = '.' + path; }
+    //     require(path + locale);
+    //   } catch(e) { }
+    // }
 
     if (moment.holidays[locale]) {
       if (regions.length) { return compileRegions(locale, regions); }

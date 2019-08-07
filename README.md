@@ -3,6 +3,8 @@
 ## Webpack Compatibility
 **This is a fork of the original moment-holiday that makes it possible to use moment-holiday with webpack.**
 
+See https://github.com/kodie/moment-holiday/issues/19 for why this fork was made.
+
 ```sh
 npm install --save https://github.com/joeldenning/moment-holiday\#1.5.2-webpack.0
 

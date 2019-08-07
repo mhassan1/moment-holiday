@@ -3,7 +3,8 @@
 //! author : Vasilii Vakhtin : https://github.com/Vasil11
 
 (function() {
-  var moment = (typeof require !== 'undefined' && require !== null) && !require.amd ? require('moment') : this.moment;
+  // For compatibility with webpack, we have a hard dependency on moment
+  var moment = require('moment');
 
   moment.holidays.russia = {
     "New Year and Christmas Holidays": {

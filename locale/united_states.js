@@ -3,7 +3,8 @@
 //! author : Kodie Grantham : https://github.com/kodie
 
 (function() {
-  var moment = (typeof require !== 'undefined' && require !== null) && !require.amd ? require('moment') : this.moment;
+  // For compatibility with webpack, we have a hard dependency on moment
+  var moment = require('moment');
 
   moment.holidays.united_states = {
     "New Year's Day": {

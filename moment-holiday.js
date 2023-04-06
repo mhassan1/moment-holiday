@@ -10,6 +10,8 @@
   // for web to work, we need to require moment without doing all the other checks:
   var moment = require("moment");
 
+  var that = this;
+  
   var parserExtensions = [];
 
   var parseHoliday = function(self, date, adjust) {
@@ -149,29 +151,29 @@
     var wn = [];
     var obj = {};
 
-    h = holidayObj || moment.holidays.active;
+    that.h = holidayObj || moment.holidays.active;
 
-    if (h.hasOwnProperty(holiday)) {
+    if (that.h.hasOwnProperty(holiday)) {
       wn.push(holiday);
-    } else if (fk = findKey(holiday, h)) {
+    } else if (fk = findKey(holiday, that.h)) {
       wn.push(fk);
     } else {
-      for (var hd in h) {
-        if (!h.hasOwnProperty(hd)) { continue; }
+      for (var hd in that.h) {
+        if (!that.h.hasOwnProperty(hd)) { continue; }
 
         pt[hd] = keywordMatches(holiday, hd.split(/[\s,.-]+/).filter(function(w){ return w.length > 2; })).length;
 
-        if (h[hd].keywords_n) {
-          var matchesN = keywordMatches(holiday, h[hd].keywords_n);
+        if (that.h[hd].keywords_n) {
+          var matchesN = keywordMatches(holiday, that.h[hd].keywords_n);
           if (matchesN.length) {
             pt[hd] = 0;
             continue;
           }
         }
 
-        if (h[hd].keywords_y) {
-          var matchesY = keywordMatches(holiday, h[hd].keywords_y);
-          if (matchesY && matchesY.length === h[hd].keywords_y.length) {
+        if (that.h[hd].keywords_y) {
+          var matchesY = keywordMatches(holiday, that.h[hd].keywords_y);
+          if (matchesY && matchesY.length === that.h[hd].keywords_y.length) {
             pt[hd] += matchesY.length;
           } else {
             pt[hd] = 0;
@@ -179,8 +181,8 @@
           }
         }
 
-        if (h[hd].keywords) {
-          var matches = keywordMatches(holiday, h[hd].keywords);
+        if (that.h[hd].keywords) {
+          var matches = keywordMatches(holiday, that.h[hd].keywords);
           if (matches) {
             pt[hd] += matches.length;
           } else {
@@ -202,7 +204,7 @@
 
     if (parse !== false) {
       for (var i = 0; i < wn.length; i++) {
-        var d = parseHoliday(self, h[wn[i]].date, adjust);
+        var d = parseHoliday(self, that.h[wn[i]].date, adjust);
         if (d) { obj[wn[i]] = d; }
       }
 
@@ -242,7 +244,7 @@
 
     for (var hd in h) {
       if (!h.hasOwnProperty(hd)) { continue; }
-      if (td = parseHoliday(self, h[hd].date, adjust)) { d[hd] = td; }
+      if (that.td = parseHoliday(self, h[hd].date, adjust)) { d[hd] = that.td; }
     }
 
     return d;
@@ -282,9 +284,9 @@
   };
 
   var getLocale = function(locale) {
-    regions = locale.split('/');
-    locale = regions[0].toLowerCase().replace(' ', '_');
-    regions.shift();
+    that.regions = locale.split('/');
+    locale = that.regions[0].toLowerCase().replace(' ', '_');
+    that.regions.shift();
 
     // This code doesn't work with webpack, so it's commented out
     // If you want locales, you should import them yourself separately
@@ -298,7 +300,7 @@
     // }
 
     if (moment.holidays[locale]) {
-      if (regions.length) { return compileRegions(locale, regions); }
+      if (that.regions.length) { return compileRegions(locale, that.regions); }
       return moment.holidays[locale];
     }
 
@@ -390,6 +392,7 @@
         holidays = [holidays];
       }
 
+	  var td;
       for (var i = 0; i < holidays.length; i++) {
         if (td = findHoliday(this, holidays[i], adjust)) { d = Object.assign({}, d, td); }
       }

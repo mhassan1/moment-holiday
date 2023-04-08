@@ -9,6 +9,7 @@
 
   // for web to work, we need to require moment without doing all the other checks:
   var moment = require("moment");
+  moment = moment.default || moment;
 
   var that = this;
   

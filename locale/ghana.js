@@ -18,6 +18,7 @@
 (function() {
   // For compatibility with webpack, we have a hard dependency on moment
   var moment = require('moment');
+  moment = moment.default || moment;
 
   moment.holidays.ghana = {
     "New Year's Day": {

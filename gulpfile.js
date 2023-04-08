@@ -23,7 +23,7 @@ function generate(locales, set, minify, filename) {
 
   if (set) {
     if (set.constructor !== Array) { set = [set]; }
-    append = "\n//! Set default locales\n(function() {\n  var moment = require('moment');";
+    append = "\n//! Set default locales\n(function() {\n  var moment = require('moment');\n  moment = moment.default || moment;";
     set.forEach(function(l){ append += '\n  moment.modifyHolidays.add("' + l + '");'; });
     append += '\n}).call(this);';
   }

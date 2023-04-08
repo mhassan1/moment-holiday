@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## [Unreleased]
 
 
+## [1.5.4] - 2023-04-07
+### Fixed
+- Added ESM default interoperability
+
+
+## [1.5.3] - 2023-04-06
+### Fixed
+- Fixed strict mode violations ([link](https://github.com/kodie/moment-holiday/pull/20))
+
+
+## [1.5.2-webpack.0] - 2019-08-07
+### Fixed
+- Added webpack support ([link](https://github.com/kodie/moment-holiday/issues/19))
+
+
 ## [1.5.1] - 2017-08-03
 ### Removed
 - `xo` as a dependency 😑.

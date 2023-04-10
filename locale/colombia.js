@@ -1,7 +1,7 @@
 (function() {
   // For compatibility with webpack, we have a hard dependency on moment
   var moment = require('moment');
-  moment = moment.default || moment;
+  moment = moment.__esModule ? moment.default : moment;
 
   moment.holidays.colombia = {
     "Día de los Reyes Magos": {

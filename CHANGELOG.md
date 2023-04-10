@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## [Unreleased]
 
 
+## [1.5.5] - 2023-04-10
+### Fixed
+- Improved ESM default interoperability
+
+
 ## [1.5.4] - 2023-04-07
 ### Fixed
 - Added ESM default interoperability

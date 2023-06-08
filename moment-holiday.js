@@ -151,6 +151,7 @@
     var pt = {};
     var wn = [];
     var obj = {};
+    var fk;
 
     that.h = holidayObj || moment.holidays.active;
 
